@@ -2,7 +2,7 @@
 
 int	get_map(int argc, char	**argv, t_map	*map)
 {
-	if (argc != 2 || open(argv[1], O_RDONLY) == -1)
+	if (argc != 2 || open(argv[1], O_RDONLY) == -1 || !ber_file(argv[1]))
 		return (0);
 	else
 		map->data = get_lines(open(argv[1], O_RDONLY));

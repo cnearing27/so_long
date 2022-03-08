@@ -24,7 +24,7 @@ void	free_strings(char	**data)
 	}
 	if (data)
 		free(data);
-//	data = NULL; ???надо или  нет
+//	data = NULL;
 }
 
 int	ft_strlen(char	*str)
@@ -49,4 +49,19 @@ void	init_map(t_map	*map)
 	map->exits_count = 0;
 	map->players_count = 0;
 	map->collectibles_count = 0;
+}
+
+int	ber_file(char	*str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	if (str[i - 1] == 'r' &&
+		str[i - 2] == 'e' &&
+		str[i - 3] == 'b' &&
+		str[i - 4] == '.')
+		return (1);
+	return (0);
 }

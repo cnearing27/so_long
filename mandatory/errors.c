@@ -1,12 +1,5 @@
 #include "so_long.h"
 
-void	free_map(t_map	*map)
-{
-	if (map->data)
-		free_strings(map->data);
-	free(map);
-}
-
 void	exit_with_error(t_map	*map)
 {
 	if (!(map->data))	//карта пустая или файл с картой не открывается, или не ввели аргумент
@@ -23,5 +16,6 @@ void	exit_with_error(t_map	*map)
 		ft_putstr("Error\nToo few players on the map!\n");
 	else if (!map->collectibles_count) //нет хотя бы одного Collectible
 		ft_putstr("Error\nToo few collectibles on the map!\n");
-	free_map(map);
+	if (map->data)
+		free_strings(map->data);
 }
