@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cnearing <cnearing@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 15:11:53 by cnearing          #+#    #+#             */
-/*   Updated: 2022/03/09 15:13:28 by cnearing         ###   ########.fr       */
+/*   Created: 2022/03/09 15:09:50 by cnearing          #+#    #+#             */
+/*   Updated: 2022/03/09 15:40:20 by cnearing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_map
 	int				exits_count;
 	int				players_count;
 	int				collectibles_count;
+	int				enemies_count;
 }	t_map;
 
 typedef struct s_window
@@ -72,6 +73,7 @@ int			get_sizes(t_map	*map);
 int			permited_simbols(t_map	*map);
 int			walls_around(t_map	*map);
 int			entities(t_map	*map);
+int			enemies(t_map	*map);
 void		init_map(t_map	*map);
 void		get_player_info(t_map	*map);
 t_window	create_new_window(void	*mlx, t_map	map);
@@ -82,8 +84,11 @@ void		draw_wall(t_programm programm, int x, int y);
 void		draw_collectible(t_programm programm, int x, int y);
 void		draw_player(t_programm programm, int x, int y);
 void		draw_exit(t_programm programm, int x, int y);
+void		draw_enemy(t_programm programm, int x, int y);
 void		draw_game(t_programm programm);
-void		ft_printf(const char *format, int num);
+char		*ft_itoa(int n);
+void		lose(void);
+void		reload_score(t_programm	*programm);
 void		move_player(t_programm	*programm, int new_x, int new_y);
 void		move_up(t_programm *programm);
 void		move_left(t_programm *programm);

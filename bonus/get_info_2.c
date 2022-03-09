@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cnearing <cnearing@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 15:11:38 by cnearing          #+#    #+#             */
-/*   Updated: 2022/03/09 15:33:47 by cnearing         ###   ########.fr       */
+/*   Created: 2022/03/09 15:09:16 by cnearing          #+#    #+#             */
+/*   Updated: 2022/03/09 15:47:07 by cnearing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,20 @@ int	permited_simbols(t_map	*map)
 		j = 0;
 		while (map->data[i][j])
 		{
-			if (map->data[i][j] == '1' ||
-				map->data[i][j] == '0' ||
-				map->data[i][j] == 'C' ||
+			if (map->data[i][j] == '1' || map->data[i][j] == '0' ||
+				map->data[i][j] == 'C' || map->data[i][j] == 'Q' ||
 				map->data[i][j] == 'P' ||
 				map->data[i][j] == 'E')
-				j++;
-			else
-				return (0);
+				counter++;
+			j++;
 		}
 		i++;
 	}
-	map->allowed_simbols = i * j;
-	return (1);
+	map->allowed_simbols = counter;
+	if (map->allowed_simbols == (map->height) * (map-> width))
+		return (1);
+	map->allowed_simbols = 0;
+	return (0);
 }
 
 int	walls_around(t_map	*map)

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cnearing <cnearing@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 15:11:41 by cnearing          #+#    #+#             */
-/*   Updated: 2022/03/09 15:23:21 by cnearing         ###   ########.fr       */
+/*   Created: 2022/03/09 15:09:24 by cnearing          #+#    #+#             */
+/*   Updated: 2022/03/09 15:44:46 by cnearing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	init_map(t_map	*map)
 	map->exits_count = 0;
 	map->players_count = 0;
 	map->collectibles_count = 0;
+	map->enemies_count = 0;
 }
 
 int	ber_file(char	*str)
@@ -69,8 +70,10 @@ int	ber_file(char	*str)
 	i = 0;
 	while (str[i])
 		i++;
-	if (str[i - 1] == 'r' && str[i - 2] == 'e'
-		&& str[i - 3] == 'b' && str[i - 4] == '.')
+	if (str[i - 1] == 'r'
+		&& str[i - 2] == 'e'
+		&& str[i - 3] == 'b'
+		&& str[i - 4] == '.')
 		return (1);
 	return (0);
 }

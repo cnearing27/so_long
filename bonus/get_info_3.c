@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   help_functions2.c                                  :+:      :+:    :+:   */
+/*   get_info_3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cnearing <cnearing@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 15:11:43 by cnearing          #+#    #+#             */
-/*   Updated: 2022/03/09 15:18:35 by cnearing         ###   ########.fr       */
+/*   Created: 2022/03/09 15:09:21 by cnearing          #+#    #+#             */
+/*   Updated: 2022/03/09 15:45:02 by cnearing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_close(void)
+int	enemies(t_map	*map)
 {
-	exit(0);
-}
+	int	i;
+	int	j;
 
-t_window	create_new_window(void	*mlx, t_map	map)
-{
-	t_window	window;
-
-	window.height = map.height * 32;
-	window.width = map.width * 32;
-	window.ptr = mlx_new_window(mlx, window.width,
-			window.height, "cnearing so_long :)");
-	mlx_hook(window.ptr, 17, 0, ft_close, 0);
-	return (window);
+	i = 0;
+	while (map->data[i])
+	{
+		j = 0;
+		while (map->data[i][j])
+		{
+			if (map->data[i][j] == 'Q')
+				map->enemies_count++;
+			j++;
+		}
+		i++;
+	}
+	i = 1;
+	if (map->enemies_count == 0)
+		return (0);
+	return (1);
 }

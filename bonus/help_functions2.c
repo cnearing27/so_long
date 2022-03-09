@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cnearing <cnearing@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 15:11:43 by cnearing          #+#    #+#             */
-/*   Updated: 2022/03/09 15:18:35 by cnearing         ###   ########.fr       */
+/*   Created: 2022/03/09 15:09:33 by cnearing          #+#    #+#             */
+/*   Updated: 2022/03/09 15:43:48 by cnearing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,16 @@ t_window	create_new_window(void	*mlx, t_map	map)
 			window.height, "cnearing so_long :)");
 	mlx_hook(window.ptr, 17, 0, ft_close, 0);
 	return (window);
+}
+
+void	reload_score(t_programm	*programm)
+{
+	char	*new_score;
+
+	new_score = NULL;
+	new_score = ft_itoa(programm->steps);
+	draw_wall(*programm, 0, 0);
+	mlx_string_put(programm->mlx, programm->window.ptr,
+		0, 0, 0xFFFFFF, new_score);
+	free(new_score);
 }

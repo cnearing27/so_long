@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cnearing <cnearing@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 15:11:30 by cnearing          #+#    #+#             */
-/*   Updated: 2022/03/09 15:36:26 by cnearing         ###   ########.fr       */
+/*   Created: 2022/03/09 15:09:01 by cnearing          #+#    #+#             */
+/*   Updated: 2022/03/09 15:48:56 by cnearing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	exit_with_error(t_map	*map)
 		ft_putstr("Error\nToo few exits on the map!\n");
 	else if (!map->players_count)
 		ft_putstr("Error\nToo few players on the map!\n");
+	else if (!map->enemies_count)
+		ft_putstr("Error\nToo few enemies on the map!\n");
 	else if (!map->collectibles_count)
 		ft_putstr("Error\nToo few collectibles on the map!\n");
 	if (map->data)

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cnearing <cnearing@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 15:11:36 by cnearing          #+#    #+#             */
-/*   Updated: 2022/03/09 15:35:58 by cnearing         ###   ########.fr       */
+/*   Created: 2022/03/09 15:09:12 by cnearing          #+#    #+#             */
+/*   Updated: 2022/03/09 15:47:40 by cnearing         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	get_map(int argc, char	**argv, t_map	*map)
 	if (!walls_around(map))
 		return (0);
 	if (!entities(map))
+		return (0);
+	if (!enemies(map))
 		return (0);
 	get_player_info(map);
 	return (1);
